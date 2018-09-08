@@ -1,11 +1,15 @@
-var str = '111';
+var str = '111222';
     console.log(str);
 
-
-for (var i = 1; i <= 100; i++) {
-    document.writeln(i);
-    //console.log(i);
-}
+function add100(){
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+        
+        sum += i;
+        document.writeln(i);
+        //console.log(i);
+    }return sum;
+}console.log(add100());
 
 
 for (var i = 1; i <= 100; i++){
