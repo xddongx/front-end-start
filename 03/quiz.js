@@ -10,24 +10,100 @@ var todayPhoto = [
 ];
 
 var wrap = document.getElementById('wrap');
-
+var leftbt = document.getElementById('left');
+var rightbt = document.getElementById('right');
+var pagenum = document.querySelector('page');
 var str = '';
-for(var i=0; i<todayPhoto.length; i++){
+var count = 0;
+
+for(var i=0; i<3; i++){
     str += '<img src="'+todayPhoto[i].img+'"> ';
 }
 
 wrap.innerHTML = str;
 
+leftbt.addEventListener('click',function (event) {
+    
+    //페이지가 1 밑으로 가지 못하게 함
+    if (count>=0){
+
+        count = count -3;
+        var index = '';
+        var num = parseInt(count/3);
 
 
-var page = 1;
+        for (i = count; i < count+3; i++) {
+            index += '<img src=' + todayPhoto[i].img + ' /> ';
+        }
+
+        wrap.innerHTML = index;
+        pagenum.innerHTML=((num+1) + '/3');
+    }
+});
+
+rightbt.addEventListener('click', function (event) {
+    //마지막 페이지 이미지가 3개 미만의 경우
+    if ((count+6)>todayPhoto.length) {
+
+        count = count + 3;
+        var index = '';
+        var num = parseInt(count / 3);
+
+
+        if (num + 1 < 4){
+
+
+            for (i = count; i < todayPhoto.length; i++) {
+                index += '<img src=' + todayPhoto[i].img + ' /> ';
+            }
+
+            wrap.innerHTML = index;
+            pagenum.innerHTML = ((num + 1) + '/3');
+        }
+        
+        // 페이지를 넘어 갈경우 카운트를 원상복구
+        else {
+            count = count - 3;
+        }
+    }
+
+    else {
+        count = count + 3;
+        var index = '';
+        var num = parseInt(count/3);
+
+        for (i = count; i < count+3; i++) {
+            index += '<img src=' + todayPhoto[i].img + ' /> ';
+        }
+
+        wrap.innerHTML = index;
+        pagenum.innerHTML=((num+1) + '/3');
+    }
+});
+
+
+/*
 function getStartInde(page){
-
-    //if(page === 1) return 0;
-    //else if(page === 2) return 3;
-    //else if(page === 3) return 6;
-
+    var page = 1;
+    var str = '';
+    if(page === 1) {
+        for(var i=0; i<3; i++){
+            str += '<img src="'+todayPhoto[i].img+'"> ';   
+        
+        return 0;}}
+    else if(page === 2) {
+        for(var i=3; i<6; i++){
+            str += '<img src="'+todayPhoto[i].img+'"> ';
+        
+        return 3;}}
+    else if(page === 3) {
+        for(var i=6; i<8; i++){
+            str += '<img src="'+todayPhoto[i].img+'"> ';
+        
+        return 6;}}
+    wrap.innerHTML = str;
     var pageCount = 3;
     return (page - 1) * pageCount;
+    
 }
-
+*/
