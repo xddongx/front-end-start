@@ -1,6 +1,7 @@
 var wrap = document.querySelector(".wrap");
-
 var str = ' ';
+
+
 for(var i=0; i<4; i++){
     for(var j=0; j<4; j++){
         if (i % 2 === 0 && j % 2 === 0)
@@ -12,6 +13,7 @@ for(var i=0; i<4; i++){
     }
 }
 wrap.innerHTML = str;
+
 var blocks = document.querySelectorAll('.wrap > div');
 
 
@@ -21,7 +23,27 @@ function select(event) {
   
 
 }
+
 for(var i=0; i < 16; i++) {
   
     blocks[i].addEventListener('click', select);
 }
+
+
+// function select(event) {
+//     console.log('selected');
+  
+//     var blocks = event.currentTarget;
+//     console.log(board)
+  
+//     if(selectedDom){
+//       selectedDom.className =  selectedDom.className.replace(' select', '');
+//     }
+  
+  
+//     blocks.className += ' select';
+  
+//     selectedDom = block;
+//   }
+
+//   var selectedDom = null;
