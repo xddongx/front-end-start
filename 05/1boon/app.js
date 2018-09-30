@@ -1,6 +1,7 @@
 console.log('1boon');
 
-var url = 'https://1boon.kakao.com/ch/enter.json?page=1&pagesize=10';
+var url = 'https://1boon.kakao.com/ch/enter.json?page=&pagesize=10';
+var more = document.querySelector('#more');
 
 getUrlData(url, print);
 
