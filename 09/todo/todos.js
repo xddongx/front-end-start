@@ -4,6 +4,7 @@
 var input = document.querySelector('#memo');
 var list = document.querySelector('#list');
 var form = document.querySelector('.new-task');
+var del = document.querySelector('.delete');
 
 
 function addTodo(event){
@@ -16,7 +17,6 @@ function addTodo(event){
 var todo = input.value;
 console.log(todo);
 insertTodo(todo);
-
 event.preventDefault();
 }
 
@@ -30,6 +30,11 @@ var html = `<li>
     <input type="checkbox" class="toggle-checked">
     <span class="text">${todo}</span>
     </li>`;
+
+    addEventListener('click', function(event){
+        if(event.target.classList.value == "delete")
+            event.target.parentNode.remove();
+    })
 
 list.innerHTML += html;
 }
