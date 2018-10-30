@@ -10,7 +10,7 @@ var del = document.querySelector('.delete');
 function addTodo(event){
 
     // if (event.keyCode === 13){
-    //     var todo = input.nodeValue;
+    //     var todo = input.value;
     //     console.log(todo);
     // }
 //console.log(event);
