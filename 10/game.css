@@ -1,0 +1,21 @@
+.game_box {
+    width: 700px;
+    height: auto;
+    
+}
+.score{
+    text-align: center;
+}
+.game {
+    width: 700px;
+    height: 650px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid black;
+}
+.bug {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+}
